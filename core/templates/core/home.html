@@ -1,0 +1,130 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CTT Brazilian Jiu-Jitsu</title>
+  </head>
+  <body >
+    <div style="display: flex;
+                flex-direction: column;
+                align-items: center;
+                height: 100vh; /* Altura da tela inteira */ 
+                text-align: center; 
+                margin-top: 30px;">
+        <div>
+            <img  style="width: 150px; margin-top: 30px;" src="/static/img/CTT_2024.png" alt="">
+        </div>        
+        <div>            
+            <h1>Bem-vindo, {{ user.first_name }}!</h1>
+
+            {% if regional %}
+                <h2>{{ regional }}</h2>
+                <p></p>
+                <h2>Horário</h2>
+        </div> 
+           
+        <div style="border: 1px solid black; 
+                    width: 350px; 
+                    text-align: left;">
+
+        {% if treino %}
+            <p style="margin-left: 5px;">Seu treino é {{ treino.dia_semana|join:" e " }} às {{ treino.horario }}</p>
+        {% elif treinos %}
+            <ul>
+                {% for treino in treinos %}
+                    <li>{{ treino.dia_semana|join:" e " }} às {{ treino.horario }}</li>
+                    <ul>
+                        {% if treino.alunos %}
+                            {% for aluno in treino.alunos %}
+                                <li style="list-style-type: none; "> {{ forloop.counter }}.{{ aluno.nome }} </li>
+                            {% endfor %}
+                        {% else %}
+                            <li>Sem alunos inscritos para este treino.</li>
+                        {% endif %}
+                    </ul>
+                    <div>
+                        <button style="margin-top: 20px; 
+                                        margin-left: 50px;
+                                        width: 140px;
+                                        background-color: green;
+                                        color: white;
+                                        padding: 5px;
+                                        border-radius: 10px;">
+                                        <a style="text-decoration: none; color: white;" href="./registrar-presenca/">Registrar presença</a>
+                        </button>
+                    </div>
+                    
+                    <p></p>
+                    <p>____________________________________</p>
+                    <p></p>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>Não há treinos disponíveis para a sua regional.</p>
+        {% endif %}
+
+        </div>
+
+    {% else %}
+        <p>Não foi possível determinar a regional para o seu perfil.</p>
+    {% endif %}
+
+    <button style="margin-top: 30px;
+                    width: 120px;
+                    height: 30px;
+                    background-color: green;
+                    color: white;
+                    border-radius: 10px;
+                    padding: 5px;">
+        <a style="text-decoration: none;
+                    color: white;" 
+            href="./digital-card/">
+            Cartão Digital
+        </a>
+    </button>
+
+    {% if eh_professor %}
+    <div>
+        <button style="margin-top: 30px;
+                        width: 120px;
+                        height: 30px;
+                        background-color: black;
+                        color: white;
+                        border-radius: 10px;
+                        padding: 5px;">
+            <a style="color: white;
+                      background-color: black;
+                      text-decoration: none;"
+            href="./listar-alunos/">
+                Alunos
+            </a>
+        </button>
+    </div>
+    {% endif %}
+
+    <h2 style="margin-top: 30px;">Mural de Recados</h2>
+        <div style="margin-top: 5px;
+                    border: 1px solid black; 
+                    width: 350px; 
+                    text-align: left;">
+            <ul style="list-style-type: none; ">
+                {% if recados %}
+                    {% for recado in recados %}
+                        <li>
+                            <strong>Por {{ recado.usuario_responsavel.get_full_name }}:</strong>
+                            <p>{{ recado.texto_mural }}</p>
+                            <small><em>Data: {{ recado.data_de_criacao|date:"d/m/Y H:i" }}</em></small>
+                            <p>____________________________________</p>
+                        </li>
+                    {% endfor %}
+                {% else %}
+                    <p>Não há recados no mural.</p>
+                {% endif %}
+            </ul>            
+        </div>
+    </div>
+</body>
+</html>

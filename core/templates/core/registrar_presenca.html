@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Presença</title>
+</head>
+<body>
+    <div style="display: flex;
+                flex-direction: column;
+                align-items: center;
+                height: 100vh; /* Altura da tela inteira */ 
+                text-align: center; 
+                margin-top: 30px;">
+
+        <h1>Treino</h1>
+
+        <h1>{{ treino }}</h1>
+
+        <div style="border: 1px solid black; 
+                    text-align: left;
+                    width: 350px;
+                    padding-bottom: 30px;">
+            <form method="post">
+                {% csrf_token %}
+                <input type="hidden" name="treino_id" value="{{ treino.id }}">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Aluno</th>
+                            <th>Presente</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for aluno, form in presenca_forms %}
+                            <tr>
+                                <td>{{ aluno.nome }}</td>
+                                <td>
+                                    <label>
+                                        <input type="checkbox" name="presente_{{ aluno.id }}" {% if form.instance.presente %}checked{% endif %}>
+                                        Sim
+                                    </label>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <button style="background-color: black; 
+                                color: white;
+                                padding: 5px;
+                                border-radius: 10px;
+                                margin-left: 100px;
+                                width: 120px;
+                                height: 30px;
+                                margin-top: 30px;" 
+                                type="submit" name="save">
+                                Salvar
+                </button>
+            </form>
+        </div>
+
+    </div>
+
+</body>
+</html>

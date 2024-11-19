@@ -1,0 +1,44 @@
+# Ambiente Virtual
+venv/
+env/
+__pycache__/
+*.py[cod]
+
+# Configurações e arquivos locais
+*.env
+.env
+
+
+# Arquivos do sistema operacional
+.DS_Store
+Thumbs.db
+
+# Arquivos de log
+*.log
+
+# Arquivos de configuração do Visual Studio Code
+.vscode/
+
+# Arquivos do Django
+media/
+staticfiles/
+node_modules/
+
+# Arquivos de migrações do Django
+**/migrations/*.py
+!**/migrations/__init__.py
+
+# Arquivos do Pytest
+.pytest_cache/
+.tox/
+
+# Arquivos do Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Arquivos de pacotes
+*.egg-info/
+dist/
+build/
+
+# Arquivos do IDE PyCharm
+.idea/

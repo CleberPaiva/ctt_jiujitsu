@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selecionar Treino</title>
+</head>
+<body>
+    <div style="text-align: center;">
+        <h1>Registrar Presença</h1>
+        {% if treinos_disponiveis %}
+            <form method="post">
+                {% csrf_token %}
+                <ul style="margin-left: -40px;">
+                    {% for treino in treinos_disponiveis %}
+                        <li style="list-style-type: none; ">
+                            <button style="background-color: black;
+                                            color: white;
+                                            border-radius: 10px;
+                                            width: 300px;
+                                            height: 30px;"                            
+                                type="submit" 
+                                name="treino_id" 
+                                value="{{ treino.id }}">
+                                {{ treino }}
+                            </button>
+                            <p></p>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </form>
+        {% else %}
+            <p>Não há treinos disponíveis para hoje na sua regional.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

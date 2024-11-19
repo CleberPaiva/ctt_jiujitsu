@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Alunos</title>
+    <style>
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+        .card {
+            width: 200px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            text-align: center;
+            background-color: #f9f9f9;
+        }
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .card-body {
+            padding: 15px;
+        }
+        .card-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .card-text {
+            font-size: 16px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Lista de Alunos</h1>
+    <div class="container">
+        {% for aluno in alunos %}
+            <div class="card">
+                <img style="width: 180px;" src="{% if aluno.imagem %}{{ aluno.imagem.url }}{% else %}/static/img/default.png{% endif %}" alt="Foto de {{ aluno.nome }}">
+                <div class="card-body">
+                    <p class="card-title">{{ aluno.nome }}</p>
+                    <p class="card-text">{{ aluno.faixa }}</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <div>
+        <button style="margin-top: 30px;
+                        width: 120px;
+                        height: 30px;
+                        background-color: black;
+                        color: white;
+                        border-radius: 10px;
+                        padding: 5px;">
+            <a style="color: white;
+                      background-color: black;"
+            href="/">
+                Voltar
+            </a>
+        </button>
+    </div>
+</body>
+</html>
