@@ -22,7 +22,7 @@
                     padding: 10px;
                     width: 280px;
                     height: 540px;
-                    background-image: url('/static/img/bk5.png');
+                    background-image: url('/static/img/CTT5.jpg');
                     background-size: cover;
                     background-repeat: no-repeat;
                     background-position: center;
@@ -50,15 +50,17 @@
                             border-radius: 15px;">
                     <img style="width: 110px;
                                 height: 110px;
-                                margin-top: 15px;"
+                                margin-top: 15px;
+                                border: 2px solid white;
+                                border-radius: 50%;"
                          src="/static/img/CTT_2024.png" alt="Ícone">
                 </div>
             </div>
             <div style="color: white; text-align: left; margin-top: 20px; width: 240px;">
                 <p><strong>NOME</strong></p>
                 <p style="background-color: white; color: black; border-radius: 10px; padding-left: 5px; ">{{ perfil.nome }}</p>
-                <p><strong>FAIXA</strong></p>
-                <p style="background-color: white; color: black; border-radius: 10px; padding-left: 5px;">{{ perfil.faixa }}</p>
+                <p><strong>STATUS - GRADUAÇÃO</strong></p>
+                <p style="background-color: white; color: black; border-radius: 10px; padding-left: 5px;">{{ perfil.funcao }} - {{ perfil.faixa }}</p>
             </div>
             <div style="color: white; text-align: center; margin-top: 50px;">
                 <p style="background-color: white; color: black; border-radius: 10px; padding-left: 5px; padding-right: 10px;">Academia CTT</p>
@@ -70,12 +72,13 @@
             <button style="margin-top: 30px;
                             width: 120px;
                             height: 30px;
-                            background-color: black;
+                            background-color: green;
                             color: white;
                             border-radius: 10px;
-                            padding: 5px;">
+                            padding: 5px;
+                            border: 2px solid white;">
                 <a style="color: white;
-                          background-color: black;
+                          background-color: green;
                           text-decoration: none;"
                 href="/">
                     Voltar

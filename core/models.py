@@ -6,32 +6,24 @@ from django.utils import timezone
 
 # Choices para Regional
 REGIONAL_CHOICES = [
-    ('Regional 1', 'Regional 1'),
-    ('Regional 2', 'Regional 2'),
-    ('Regional 3', 'Regional 3'),
-    ('Regional 4', 'Regional 4'),
-    ('Regional 5', 'Regional 5'),
-    ('Regional 6', 'Regional 6'),
-    ('Regional 7', 'Regional 7'),
-    ('Regional 8', 'Regional 8')
+    ('Canoas', 'Canoas'),
+    ('Outra', 'Outra')
 ]
 
 # Choices para Função
 FUNCAO_CHOICES = [
-    ('Policial Penal', 'Policial Penal'),
-    ('Agente de Segurança Socioeducativo', 'Agente de Segurança Socioeducativo'),
-    ('Vigilante', 'Vigilante'),
-    ('Técnico', 'Técnico'),
+    ('Professor', 'Professor'),
+    ('Aluno', 'Aluno'),
     ('Outros', 'Outros')
 ]
 
 # Choices para Graduação
 GRADUACAO_CHOICES = [
-    ('Branco', 'Branco'),
-    ('Branco - 1 grau', 'Branco - 1 grau'),
-    ('Branco - 2 graus', 'Branco - 2 graus'),
-    ('Branco - 3 graus', 'Branco - 3 graus'),
-    ('Branco - 4 graus', 'Branco - 4 graus'),
+    ('Branca', 'Branca'),
+    ('Branca - 1 grau', 'Branca - 1 grau'),
+    ('Branca - 2 graus', 'Branca - 2 graus'),
+    ('Branca - 3 graus', 'Branca - 3 graus'),
+    ('Branca - 4 graus', 'Branca - 4 graus'),
     ('Azul', 'Azul'),
     ('Azul - 1 grau', 'Azul - 1 grau'),
     ('Azul - 2 graus', 'Azul - 2 graus'),
@@ -47,13 +39,13 @@ GRADUACAO_CHOICES = [
     ('Marrom - 2 graus', 'Marrom - 2 graus'),
     ('Marrom - 3 graus', 'Marrom - 3 graus'),
     ('Marrom - 4 graus', 'Marrom - 4 graus'),
-    ('Preto', 'Preto'),
-    ('Preto - 1 grau', 'Preto - 1 grau'),
-    ('Preto - 2 graus', 'Preto - 2 graus'),
-    ('Preto - 3 grau', 'Preto - 3 graus'),
-    ('Preto - 4 grau', 'Preto - 4 graus'),
-    ('Preto - 5 grau', 'Preto - 5 graus'),
-    ('Preto - 6 grau', 'Preto - 6 graus')
+    ('Preta', 'Preta'),
+    ('Preta - 1 grau', 'Preta - 1 grau'),
+    ('Preta - 2 graus', 'Preta - 2 graus'),
+    ('Preta - 3 grau', 'Preta - 3 graus'),
+    ('Preta - 4 grau', 'Preta - 4 graus'),
+    ('Preta - 5 grau', 'Preta - 5 graus'),
+    ('Preta - 6 grau', 'Preta - 6 graus')
 ]
 
 # Choices para Dia da Semana
@@ -107,7 +99,7 @@ class Aluno(models.Model):
             user = User.objects.create_user(
                 username=self.cpf,       # Usa o CPF como nome de usuário
                 email=self.email,
-                password='acaps123'      # Define uma senha padrão que deve ser alterada
+                password='canoas123'      # Define uma senha padrão que deve ser alterada
             )
             user.first_name = self.nome.split()[0]  # Define o primeiro nome
             user.last_name = ' '.join(self.nome.split()[1:])  # Define o sobrenome, se houver
@@ -136,7 +128,7 @@ class Professor(models.Model):
             user = User.objects.create_user(
                 username=self.cpf,       # Usa o CPF como nome de usuário
                 email=self.email,
-                password='acaps123'      # Define uma senha padrão que deve ser alterada
+                password='canoas123'      # Define uma senha padrão que deve ser alterada
             )
             user.first_name = self.nome.split()[0]  # Define o primeiro nome
             user.last_name = ' '.join(self.nome.split()[1:])  # Define o sobrenome, se houver

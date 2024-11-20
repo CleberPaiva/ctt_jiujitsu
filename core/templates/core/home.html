@@ -31,7 +31,7 @@
                     text-align: left;">
 
         {% if treino %}
-            <p style="margin-left: 5px;">Seu treino é {{ treino.dia_semana|join:" e " }} às {{ treino.horario }}</p>
+            <p style="margin-left: 5px;">Seu treino é {{ treino.dia_semana|join:" / " }} às {{ treino.horario }}</p>
         {% elif treinos %}
             <ul>
                 {% for treino in treinos %}
@@ -52,7 +52,8 @@
                                         background-color: green;
                                         color: white;
                                         padding: 5px;
-                                        border-radius: 10px;">
+                                        border-radius: 10px;
+                                        border: 2px solid white;">
                                         <a style="text-decoration: none; color: white;" href="./registrar-presenca/">Registrar presença</a>
                         </button>
                     </div>
@@ -78,7 +79,8 @@
                     background-color: green;
                     color: white;
                     border-radius: 10px;
-                    padding: 5px;">
+                    padding: 5px;
+                    border: 2px solid white;">
         <a style="text-decoration: none;
                     color: white;" 
             href="./digital-card/">
@@ -91,12 +93,13 @@
         <button style="margin-top: 30px;
                         width: 120px;
                         height: 30px;
-                        background-color: black;
+                        background-color: green;
                         color: white;
                         border-radius: 10px;
-                        padding: 5px;">
+                        padding: 5px;
+                        border: 2px solid white;">
             <a style="color: white;
-                      background-color: black;
+                      background-color: green;
                       text-decoration: none;"
             href="./listar-alunos/">
                 Alunos
