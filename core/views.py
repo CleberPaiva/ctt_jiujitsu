@@ -181,3 +181,10 @@ def listar_alunos(request):
 def sua_view(request):
     eh_professor = Professor.objects.filter(email=request.user.email).exists()  # Verifica se o usuário é professor
     return render(request, 'home.html', {'eh_professor': eh_professor})
+
+
+@login_required
+def listar_presencas(request):
+    # Busca todas as presenças, ordenadas por data
+    presencas = Presenca.objects.select_related('aluno', 'treino').order_by('-data')
+    return render(request, 'core/listar_presencas.html', {'presencas': presencas})

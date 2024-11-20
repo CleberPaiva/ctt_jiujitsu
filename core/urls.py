@@ -18,6 +18,7 @@ urlpatterns = [
     path('carteira/', views.carteira, name='carteira'),
     path('digital-card/', views.digital_card, name='digital_card'),
     path('listar-alunos/', views.listar_alunos, name='listar_alunos'),
+    path('listar-presencas/', views.listar_presencas, name='listar_presencas'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # Adiciona a configuração para servir arquivos de mídia
